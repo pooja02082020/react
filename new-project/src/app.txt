@@ -1,0 +1,79 @@
+//Passing down props
+
+import Contact, { About } from "./components/Contact"
+function App() {
+
+  let fname = "Pooja"
+  let greet = <h1>hello, woo!!</h1>
+  return (
+    <>
+      {greet}
+      <h1>Welcome to React</h1>
+      {/* calling variable */}
+      {/* { Info()}   */}
+      {/* //calling function */}
+      <About />
+      <Contact name = {fname} age = {23} country= "Nepal" />
+      {/* proper way of calling function -  <Info/>*/}
+
+    </>
+  )
+}
+export default App
+
+//passing down an array
+
+import React from 'react'
+import Greet from './components/Greet';
+
+function App() {
+  let names = ['Pooja','Birendra','Abhishekh','Sushma'];
+  return (
+    <>
+     <Greet fnames ={names}/> 
+     {/*  <Greet first ={names[0]} second ={names[1]} third ={names[2]} fourth ={names[3]}/> */}
+    </>
+  )
+}
+
+export default App
+
+//Passing an object
+
+import React from 'react'
+import Developer from './components/Developer'
+
+function App() {
+  let developer = {
+    name : "Pooja",
+    id:1,
+    country :"Nepal"
+  }
+  
+  let developer2 = {
+  name : "Sushma",
+  id:2,
+  country :"Nepal"
+}
+
+  
+  let developer3 = {
+  name : "Hira",
+  id:3,
+  country :"Nepal"
+}
+
+  
+  return (
+    <>
+      <Developer details ={developer}/>
+      <Developer details ={developer2}/>
+      <Developer details={developer3}/>
+    </>
+  )
+}
+
+export default App
+
+
+

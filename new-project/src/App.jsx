@@ -1,22 +1,15 @@
-import Contact, { About } from "./components/Contact"
-function App() {
+import React from 'react'
+import User from './components/User'
 
-  let fname = "Pooja"
-  let greet = <h1>hello, woo!!</h1>
+function App() {
   return (
     <>
-      {greet}
-      <h1>Welcome to React</h1>
-      {/* calling variable */}
-      {/* { Info()}   */}
-      {/* //calling function */}
-      <About />
-      <Contact name = {fname} age = {23} country= "Nepal" />
-      {/* proper way of calling function -  <Info/>*/}
-
+      
+      <User name="Abhi"/>
+      <User/>
+      <User name="Ola"/>
     </>
   )
 }
-
 
 export default App
