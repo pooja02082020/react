@@ -75,5 +75,52 @@ function App() {
 
 export default App
 
+//default props
+import React from 'react'
+import User from './components/User'
+
+function App() {
+  return (
+    <>
+      
+      <User name="Abhi"/>
+      <User/>
+      <User name="Ola"/>
+    </>
+  )
+}
+
+export default App
+
+
+//children props
+import React from 'react'
+import MyInfo from './components/MyInfo'
+
+function App() {
+  return (
+    <>
+
+      <MyInfo color="red">
+        <h2>Developer one : </h2>
+        <h5>Name : "Pooja"</h5>
+        <h5>id : 1</h5>
+      </MyInfo>
+      <MyInfo color="orange">
+        <h2>Developer 2 : </h2>
+        <h5>Name : "tt"</h5>
+        <h5>id : 2</h5>
+      </MyInfo>
+      <MyInfo color="blue">
+        <h2>Developer 3 : </h2>
+        <h5>Name : "sam"</h5>
+        <h5>id : 3</h5>
+      </MyInfo>
+    </>
+  )
+}
+
+export default App
+
 
 
