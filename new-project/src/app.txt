@@ -122,5 +122,62 @@ function App() {
 
 export default App
 
+//Click Event and Function callingimport React from 'react'
+
+function App() {
+  function clickEvent(){
+    alert("I was clicked")
+  }
+
+  function greet(name){
+    alert("Welcome "+ name)
+  }
+
+
+  function handleClick(event){
+    console.log("Event " , event)
+
+  }
+  return (
+     <>
+      <button onClick={clickEvent}>click me!</button>
+      <button onClick={()=>greet("Sushma")}>Greet</button>
+      <button onClick={handleClick}>Event Check</button>
+      <button  onClick={()=>alert("how are you doinf?")} >Inline Handling</button>
+    </>
+  )
+}
+
+
+export default App
+
+
+//state
+import React from 'react'
+import { useState } from 'react'
+
+function App() {
+  // let phone = "Samsung"
+
+  // function changePhone(){
+  // phone = "Apple"
+  // }
+
+  let [phone, setPhone] = useState("Samsung")
+  function changePhone() {
+    setPhone("Apple")
+  }
+  return (
+    <>
+      {/* <h3>My old phone is: {phone}</h3> */}
+      {/* <button onClick={changePhone}>Change Phone</button> */}
+      <h3>{phone}</h3>
+      <button onClick={changePhone}>Change Phone</button>
+    </>
+  )
+}
+
+export default App
+
 
 

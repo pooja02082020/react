@@ -1,27 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Conter from './components/Conter'
+import Learner from './components/Learner'
 
 function App() {
-  function clickEvent(){
-    alert("I was clicked")
-  }
-
-  function greet(name){
-    alert("Welcome "+ name)
-  }
-
-
-  function handleClick(event){
-    console.log("Event " , event)
-    
-  }
+  let [show, setShow]=useState(true)
   return (
-     <>
-      <button onClick={clickEvent}>click me!</button>
-      <button onClick={()=>greet("Sushma")}>Greet</button>
-      <button onClick={handleClick}>Event Check</button>
+    <>
+      {/* <Conter/> */}
+    {/* {show?<h3>Welcome</h3>:null} */}
+    {show?<Learner/>:null}
+      <button onClick={()=>setShow(!show)}>Toggle</button>
     </>
   )
 }
-
 
 export default App
