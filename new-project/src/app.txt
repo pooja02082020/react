@@ -181,3 +181,124 @@ export default App
 
 
 
+//Toggle using react
+import React, { useState } from 'react'
+import Conter from './components/Conter'
+import Learner from './components/Learner'
+
+function App() {
+  let [show, setShow]=useState(true)
+  return (
+    <>
+      {/* <Conter/> */}
+    {/* {show?<h3>Welcome</h3>:null} */}
+    {show?<Learner/>:null}
+      <button onClick={()=>setShow(!show)}>Toggle</button>
+    </>
+  )
+}
+
+export default App
+
+//getting input field values
+
+import React, { useState } from 'react'
+
+function App() {
+  let[val,setVal] =useState("")
+  let[pass,setPass] =useState("")
+  return (
+    <div>
+      {/* <input type="text" placeholder='Enter Username' onChange={(event)=>console.log(event.target.value)}/> */}
+      <input type="text" value={val} placeholder='Enter Username' onChange={(event)=>setVal(event.target.value)}/>
+      <input type ="password" value={pass} placeholder='Enter your password'onChange={(event)=>setPass(event.target.value)}/>
+      <h3>{val}</h3>
+      <h3>{pass}</h3>
+      <br /><br />
+      <button onClick={()=>{setVal("");setPass("");}}>Clear</button>
+    </div>
+  )
+}
+
+export default App
+
+
+//for lists
+import React from 'react'
+import Skills from './components/Skills'
+
+function App() {
+  let fruits = ["Mango","Aplle","Cherry","Litchi"]
+  return (
+    <div>
+      {/* <Skills/> */}
+      <h2>Fruits</h2>
+      {/* <ul> */}
+        {/* <li>{fruits[0]}</li> */}
+        {/* <li>{fruits[1]}</li> */}
+        {/* <li>{fruits[2]}</li> */}
+        {/* <li>{fruits[3]}</li> */}
+      {/* </ul> */}
+      <ul>
+        {fruits.map((item,idx)=>(
+           <li>{item}</li>
+        ))}
+       
+      </ul>
+      {/* 
+        // fruits.map((item,idx)=>{
+          // console.log(item,idx)
+        // })
+      // } */}
+    </div>
+  )
+}
+
+export default App
+
+
+//Redering an array of object
+
+//Creating reusable components
+import React from 'react'
+import NewUSer from './NewUSer'
+
+function App() {
+  let userInfo = [
+    {
+      name: "Bhuwa",
+      id: 1,
+      email: "B@info.com"
+    },
+    {
+      name: "Birendra",
+      id: 2,
+      email: "Bi@info.com"
+    },
+    {
+      name: "Pooja",
+      id: 3,
+      email: "Poo@info.com"
+    },
+    {
+      name: "Abhis",
+      id: 4,
+      email: "Ab@info.com"
+    }
+  ]
+  return (
+    <div>
+      {
+  userInfo.map((item) => (
+    <div key={item.id}>
+      <NewUSer data={item} />
+    </div>
+  ))
+}
+
+    </div>
+  )
+}
+
+export default App
+

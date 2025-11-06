@@ -1,16 +1,24 @@
-import React, { useState } from 'react'
-import Conter from './components/Conter'
-import Learner from './components/Learner'
+import React, { useEffect, useState } from 'react'
+import Effect from './components/Effect'
 
 function App() {
-  let [show, setShow]=useState(true)
+  let[counter,setCounter] =useState(0)
+  let[data,setData]=useState(0)
+
+  // function greet(){
+    // console.log("How are you?")
+  // }
+
+  // useEffect(()=>{
+    // greet();
+  // },[data])  
+  // greet();
   return (
-    <>
-      {/* <Conter/> */}
-    {/* {show?<h3>Welcome</h3>:null} */}
-    {show?<Learner/>:null}
-      <button onClick={()=>setShow(!show)}>Toggle</button>
-    </>
+    <div>
+      <button onClick={()=>setCounter(counter+1)}>count:</button>
+      <button onClick={()=>setData(data+1)}>Data</button>
+      <Effect count={counter} data={data}/>
+    </div>
   )
 }
 
