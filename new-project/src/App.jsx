@@ -1,41 +1,30 @@
-import React, { useRef } from 'react'
+import React, { useState } from 'react'
+import { courseContext } from './components/DataContext'
+import University from './components/University'
 
 function App() {
-  let handleForm = (event) => {
-    event.preventDefault()
-    console.log(event)
-    let user = document.querySelector("#user").value
-    console.log("USER IS ", user)
-    let pass = document.querySelector("#pass").value
-    console.log("Password IS ", pass)
-  }
-
-
-  const userRef = useRef();
-  const passRef = useRef();
-  let handleRef = (event)=>{
-    event.preventDefault();
-    let user = userRef.current.value
-    let pass = passRef.current.value
-    console.log("USER IS ", user)
-    console.log("Password IS ", pass)
-
-  }
+  //let c1 = "DBMS"
+  let [course,setCourse] =useState("")
   return (
-    <div>
-      <form action="" onSubmit={handleForm}>
-        <input id='user' type="text" placeholder='Enter username' /><br /><br />
-        <input id='pass' type="password" placeholder='Enter password' /><br /><br />
-        <button>Submit</button>
-      </form>
-
-      <form action="" onSubmit={handleRef}>
-        <input ref={userRef} type="text" placeholder='Enter username' />
-        <input ref={passRef} type="password" placeholder='Enter password' />
-        <button>Submit</button>
-      </form>
+    <div style={{ background: 'aqua', border: '2px solid black', padding: '10px', textAlign: 'center' }}>
+      <courseContext.Provider value={course}>
+        <select value={course} onChange={(event)=>setCourse(event.target.value)}>
+          <option value="" selected>Select Course</option>
+          <option value="Python">Python</option>
+          <option value="operating system">OS</option>
+          <option value="Java">Java</option>
+          <option value="CSS">CSS</option>
+          <option value="Blockchain">Block Chain</option>
+          <option value="HTML">HTML</option>
+        </select>
+        <button onClick={()=>setCourse("")}>Clear</button>
+        <h1>Container</h1>
+        <University />
+      </courseContext.Provider>
     </div>
   )
 }
+
+
 
 export default App
