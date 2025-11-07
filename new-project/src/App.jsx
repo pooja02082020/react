@@ -1,23 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import Effect from './components/Effect'
+import React, { useState } from 'react'
+import LifeCycle from './components/LifeCycle'
 
 function App() {
-  let[counter,setCounter] =useState(0)
-  let[data,setData]=useState(0)
+  const [count, setCount] = useState(0)
+  const [show,setShow] = useState(true)
 
-  // function greet(){
-    // console.log("How are you?")
-  // }
-
-  // useEffect(()=>{
-    // greet();
-  // },[data])  
-  // greet();
   return (
     <div>
-      <button onClick={()=>setCounter(counter+1)}>count:</button>
-      <button onClick={()=>setData(data+1)}>Data</button>
-      <Effect count={counter} data={data}/>
+      <button onClick={() => setCount(count + 1)}>Counter</button>
+      <button onClick={()=>setShow(!show)}>Toggle</button>
+      {show?<LifeCycle  count={count}/>:null}
+      
+      {/* <LifeCycle count={count} /> */}
     </div>
   )
 }
