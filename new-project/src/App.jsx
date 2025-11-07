@@ -1,30 +1,43 @@
-import React, { useState } from 'react'
-import { courseContext } from './components/DataContext'
-import University from './components/University'
+import React, { useReducer } from 'react'
+// INitial object set to 0
+const inData ={
+  name:'',
+  password:'',
+  email:'',
+  city:'',
+  country:''
+}
 
-function App() {
-  //let c1 = "DBMS"
-  let [course,setCourse] =useState("")
-  return (
-    <div style={{ background: 'aqua', border: '2px solid black', padding: '10px', textAlign: 'center' }}>
-      <courseContext.Provider value={course}>
-        <select value={course} onChange={(event)=>setCourse(event.target.value)}>
-          <option value="" selected>Select Course</option>
-          <option value="Python">Python</option>
-          <option value="operating system">OS</option>
-          <option value="Java">Java</option>
-          <option value="CSS">CSS</option>
-          <option value="Blockchain">Block Chain</option>
-          <option value="HTML">HTML</option>
-        </select>
-        <button onClick={()=>setCourse("")}>Clear</button>
-        <h1>Container</h1>
-        <University />
-      </courseContext.Provider>
-    </div>
-  )
+let reducer =(state,action)=>{
+  // console.log("State: ",state, "Action: ",action)
+  // console.log("Action: ",action)
+
+  return{...state,[action.type]:action.val}
+
 }
 
 
+function App() {
+  let[state,dispatch]=useReducer(reducer,inData)
+  console.log(state)
+  return (
+    <div>
+      <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'name'})} placeholder='Enter Name' /><br /><br />
+      <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'password'})} placeholder='Enter Password' /><br /><br />
+      <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'email'})} placeholder='Enter Email' /><br /><br />
+      <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'city'})} placeholder='Enter City' /><br /><br />
+      <input type="text" onChange={(event)=>dispatch({val:event.target.value,type:'country'})} placeholder='Enter Country' /><br /><br />
+    
+    <br /><br />
+    <ul>
+      <li>Name: {state.name}</li>
+      <li>Password:  {state.password}</li>
+      <li>Email: {state.email} </li>
+      <li>City:{state.city} </li>
+      <li>Country:{state.country} </li>
+    </ul>
+    </div>
+  )
+}
 
 export default App
