@@ -589,3 +589,27 @@ function App() {
 }
 
 export default App
+
+
+//legacy Redux
+
+import React from 'react'
+import Ctr from './Ctr'
+import { useDispatch, useSelector } from 'react-redux'
+import { bColor } from './ReduxStore/Action'
+
+function App() {
+  const bgColor = useSelector((state)=>state.color.backgroundColor)
+  const dispatch = useDispatch()
+  return (
+    <div style={{backgroundColor:bgColor,height:"100vh"}}>
+      
+      <Ctr/><br /><br />
+      <button onClick={()=>dispatch(bColor("blue"))}>Blue</button>
+      <button onClick={()=>dispatch(bColor("yellow"))}>Yellow</button>
+      <button onClick={()=>dispatch(bColor("orange"))}>Orange</button>
+    </div>
+  )
+}
+
+export default App

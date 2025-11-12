@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { increment,decrement } from './ReduxStore/Action'
 
 function Ctr() {
-    const count = useSelector((state)=>state)
+    const count = useSelector((state)=>state.count)
     const dispatch=useDispatch()
   return (
     <div>

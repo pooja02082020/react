@@ -1,6 +1,12 @@
-import {createStore} from 'redux'
+import {combineReducers, createStore} from 'redux'
 import countReducer from './Reducer'
+import colorReducer from './colorReducer'
 
-let store = createStore(countReducer)
+
+const reducer = combineReducers({
+    count:countReducer,
+    color:colorReducer
+})
+let store = createStore(reducer)
 
 export default store

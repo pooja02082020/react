@@ -11,4 +11,9 @@ export let decrement = () => {
     }
 }
 
-
+export const bColor =(color) =>{
+    return{
+        type: 'setbColor',
+        payload: color
+    }
+}
